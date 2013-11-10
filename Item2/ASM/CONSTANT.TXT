@@ -1,0 +1,9 @@
+Table of constant values and their specified constant labels.
+
+01  n1
+02  n2
+03  sign
+04  rh
+05  rl
+02  led_sin_signo
+03  led_con_signo

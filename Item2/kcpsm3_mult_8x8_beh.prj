@@ -1,0 +1,4 @@
+vhdl work "mult_8x8.vhd"
+vhdl work "kcpsm3.vhd"
+vhdl work "ASM/PROG_ROM.VHD"
+vhdl work "kcpsm3_mult_8x8.vhd"

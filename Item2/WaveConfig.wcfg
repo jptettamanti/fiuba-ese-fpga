@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="C:/Xilinx_workspace/CLP_TPFinal2C2013/testbench_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="testbench" />
+            <top_module name="textio" />
+            <top_module name="vcomponents" />
+            <top_module name="vital_primitives" />
+            <top_module name="vital_timing" />
+            <top_module name="vpkg" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="18" />
+   <wvobject fp_name="/testbench/clk_signal" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_signal</obj_property>
+      <obj_property name="ObjectShortName">clk_signal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/reset_signal" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset_signal</obj_property>
+      <obj_property name="ObjectShortName">reset_signal</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/processor/address" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">address[9:0]</obj_property>
+      <obj_property name="ObjectShortName">address[9:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/processor/instruction" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instruction[17:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction[17:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/processor/port_id" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">port_id[7:0]</obj_property>
+      <obj_property name="ObjectShortName">port_id[7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/processor/write_strobe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">write_strobe</obj_property>
+      <obj_property name="ObjectShortName">write_strobe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/processor/out_port" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">out_port[7:0]</obj_property>
+      <obj_property name="ObjectShortName">out_port[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/periferico/estado_actual" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">estado_actual</obj_property>
+      <obj_property name="ObjectShortName">estado_actual</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/periferico/n1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">n1[7:0]</obj_property>
+      <obj_property name="ObjectShortName">n1[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/periferico/n2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">n2[7:0]</obj_property>
+      <obj_property name="ObjectShortName">n2[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/periferico/signo" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">signo[7:0]</obj_property>
+      <obj_property name="ObjectShortName">signo[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/periferico/rh" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rh[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rh[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/periferico/rl" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rl[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rl[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/periferico/interrupt_event" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">interrupt_event</obj_property>
+      <obj_property name="ObjectShortName">interrupt_event</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/processor/interrupt" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">interrupt</obj_property>
+      <obj_property name="ObjectShortName">interrupt</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/processor/interrupt_ack" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">interrupt_ack</obj_property>
+      <obj_property name="ObjectShortName">interrupt_ack</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/processor/read_strobe" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">read_strobe</obj_property>
+      <obj_property name="ObjectShortName">read_strobe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/testbench/uut/processor/in_port" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">in_port[7:0]</obj_property>
+      <obj_property name="ObjectShortName">in_port[7:0]</obj_property>
+   </wvobject>
+</wave_config>

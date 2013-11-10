@@ -1,0 +1,10 @@
+Table of addresses and their specified labels.
+
+000  start
+011  end
+1B0  multiply
+1B3  mult_ready
+1B7  verify
+1BD  ok
+1BE  nok
+2B0  int_call

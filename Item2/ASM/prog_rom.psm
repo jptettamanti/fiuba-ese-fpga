@@ -1,0 +1,138 @@
+;Test del multiplicador
+
+;************************************
+; Nombres de los registros
+;************************************
+
+NAMEREG s0 , multiplicando
+NAMEREG s1 , multiplicador
+NAMEREG s2 , signo
+
+NAMEREG s3 , resultado_alto
+NAMEREG s4 , resultado_bajo
+
+NAMEREG s5 , semaforo_mult
+
+NAMEREG s6 , esperado_alto
+NAMEREG s7 , esperado_bajo
+NAMEREG s8 , esperado_ok
+
+
+;************************************
+; Direcciones de registros
+;************************************
+
+; Direcciones de los registros del multiplicador
+CONSTANT n1            , 01
+CONSTANT n2            , 02
+CONSTANT sign          , 03
+CONSTANT rh            , 04
+CONSTANT rl            , 05
+
+CONSTANT led_sin_signo , 02
+CONSTANT led_con_signo , 03
+
+;************************************
+; Programa principal
+;************************************
+start:
+  ENABLE INTERRUPT						; Habilito las interrupciones
+
+  ;************************************
+  ; Test de multiplicacion SIN signo:
+  ;************************************
+
+  ; Carga de registros de entrada
+  LOAD     multiplicando, F0
+  LOAD     multiplicador, B2
+  LOAD     signo        , 00
+
+  ; Multiplico
+  CALL    multiply
+
+  ; Verifico el resultado y enciendo un LED si fue satisfactorio
+  LOAD    esperado_alto , 00
+  LOAD    esperado_bajo , 00
+  CALL    verify
+  OUTPUT  esperado_ok   , led_sin_signo
+
+  ;************************************
+  ; Test de multiplicacion CON signo:
+  ;************************************
+
+  ; Carga de registros de entrada
+  LOAD     multiplicando, F1
+  LOAD     multiplicador, 50
+  LOAD     signo        , FF
+
+  ; Multiplico
+  CALL    multiply
+
+  ; Verifico el resultado y enciendo un LED si fue satisfactorio
+  LOAD    esperado_alto , 00
+  LOAD    esperado_bajo , 00
+  CALL    verify
+  OUTPUT  esperado_ok   , led_con_signo
+
+end:
+  JUMP end
+
+
+; y enciendo un LED si el resultado fue satisfactorio
+
+;************************************
+; Subrutina de multiplicacion
+;************************************
+ADDRESS 1B0
+multiply:
+  ; Escribo los operandos en los registros del multiplicador
+  OUTPUT  multiplicando, n1
+  OUTPUT  multiplicador, n2
+  OUTPUT  signo        , sign
+
+  ; Espero el resultado de la multiplicacion
+  mult_ready:
+    TEST  semaforo_mult, 01                   ; Intento tomar el semaforo
+    JUMP  NZ           , mult_ready           ; Si no puedo tomar el semaforo espero
+    LOAD  semaforo_mult, 00                   ; Tomo el semaforo
+
+  RETURN
+
+
+;************************************
+; Subrutina de verificacion
+;************************************
+verify:
+  ; Comparo el byte alto
+  INPUT   resultado_alto, rh
+  COMPARE resultado_alto, esperado_alto
+  JUMP    NZ            , nok
+
+  ; Comparo el byte bajo
+  INPUT   resultado_bajo, rh
+  COMPARE resultado_bajo, esperado_bajo
+  JUMP    NZ            , nok
+
+  ; Asigno el resultado de la comparacion
+  ok:
+    LOAD  esperado_ok   , 01
+  nok:
+    LOAD  esperado_ok   , 00
+
+  RETURN
+
+
+;************************************
+; Subrutina de interrupcion
+;************************************
+ADDRESS 2B0
+int_call:
+  LOAD    semaforo_mult, 01    ; Doy un semaforo de multiplicacion finalizada
+  RETURNI ENABLE
+
+
+;************************************
+; Configurar vector de interrupcion
+;************************************
+ADDRESS 3FF
+  JUMP int_call

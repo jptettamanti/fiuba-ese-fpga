@@ -1,0 +1,630 @@
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;Test del multiplicador
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Nombres de los registros
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-NAMEREG
+   OPERAND1-s0
+   OPERAND2-multiplicando
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-NAMEREG
+   OPERAND1-s1
+   OPERAND2-multiplicador
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-NAMEREG
+   OPERAND1-s2
+   OPERAND2-signo
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-NAMEREG
+   OPERAND1-s3
+   OPERAND2-resultado_alto
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-NAMEREG
+   OPERAND1-s4
+   OPERAND2-resultado_bajo
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-NAMEREG
+   OPERAND1-s5
+   OPERAND2-semaforo_mult
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-NAMEREG
+   OPERAND1-s6
+   OPERAND2-esperado_alto
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-NAMEREG
+   OPERAND1-s7
+   OPERAND2-esperado_bajo
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-NAMEREG
+   OPERAND1-s8
+   OPERAND2-esperado_ok
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Direcciones de registros
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Direcciones de los registros del multiplicador
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-CONSTANT
+   OPERAND1-n1
+   OPERAND2-01
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-CONSTANT
+   OPERAND1-n2
+   OPERAND2-02
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-CONSTANT
+   OPERAND1-sign
+   OPERAND2-03
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-CONSTANT
+   OPERAND1-rh
+   OPERAND2-04
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-CONSTANT
+   OPERAND1-rl
+   OPERAND2-05
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-CONSTANT
+   OPERAND1-led_sin_signo
+   OPERAND2-02
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-CONSTANT
+   OPERAND1-led_con_signo
+   OPERAND2-03
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Programa principal
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-000
+      LABEL-start
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+    ADDRESS-000
+      LABEL-
+INSTRUCTION-ENABLE
+   OPERAND1-INTERRUPT
+   OPERAND2-
+    COMMENT-; Habilito las interrupciones
+    ADDRESS-001
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-001
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Test de multiplicacion SIN signo:
+    ADDRESS-001
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-001
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Carga de registros de entrada
+    ADDRESS-001
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-multiplicando
+   OPERAND2-F0
+    COMMENT-
+    ADDRESS-002
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-multiplicador
+   OPERAND2-B2
+    COMMENT-
+    ADDRESS-003
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-signo
+   OPERAND2-00
+    COMMENT-
+    ADDRESS-004
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Multiplico
+    ADDRESS-004
+      LABEL-
+INSTRUCTION-CALL
+   OPERAND1-multiply
+   OPERAND2-
+    COMMENT-
+    ADDRESS-005
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Verifico el resultado y enciendo un LED si fue satisfactorio
+    ADDRESS-005
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-esperado_alto
+   OPERAND2-00
+    COMMENT-
+    ADDRESS-006
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-esperado_bajo
+   OPERAND2-00
+    COMMENT-
+    ADDRESS-007
+      LABEL-
+INSTRUCTION-CALL
+   OPERAND1-verify
+   OPERAND2-
+    COMMENT-
+    ADDRESS-008
+      LABEL-
+INSTRUCTION-OUTPUT
+   OPERAND1-esperado_ok
+   OPERAND2-led_sin_signo
+    COMMENT-
+    ADDRESS-009
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-009
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Test de multiplicacion CON signo:
+    ADDRESS-009
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-009
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Carga de registros de entrada
+    ADDRESS-009
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-multiplicando
+   OPERAND2-F1
+    COMMENT-
+    ADDRESS-00A
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-multiplicador
+   OPERAND2-50
+    COMMENT-
+    ADDRESS-00B
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-signo
+   OPERAND2-FF
+    COMMENT-
+    ADDRESS-00C
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Multiplico
+    ADDRESS-00C
+      LABEL-
+INSTRUCTION-CALL
+   OPERAND1-multiply
+   OPERAND2-
+    COMMENT-
+    ADDRESS-00D
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Verifico el resultado y enciendo un LED si fue satisfactorio
+    ADDRESS-00D
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-esperado_alto
+   OPERAND2-00
+    COMMENT-
+    ADDRESS-00E
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-esperado_bajo
+   OPERAND2-00
+    COMMENT-
+    ADDRESS-00F
+      LABEL-
+INSTRUCTION-CALL
+   OPERAND1-verify
+   OPERAND2-
+    COMMENT-
+    ADDRESS-010
+      LABEL-
+INSTRUCTION-OUTPUT
+   OPERAND1-esperado_ok
+   OPERAND2-led_con_signo
+    COMMENT-
+    ADDRESS-011
+      LABEL-end
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+    ADDRESS-011
+      LABEL-
+INSTRUCTION-JUMP
+   OPERAND1-end
+   OPERAND2-
+    COMMENT-
+    ADDRESS-012
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; y enciendo un LED si el resultado fue satisfactorio
+    ADDRESS-012
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-012
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Subrutina de multiplicacion
+    ADDRESS-012
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-1B0
+      LABEL-
+INSTRUCTION-ADDRESS
+   OPERAND1-1B0
+   OPERAND2-
+    COMMENT-
+    ADDRESS-1B0
+      LABEL-multiply
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+    ADDRESS-1B0
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Escribo los operandos en los registros del multiplicador
+    ADDRESS-1B0
+      LABEL-
+INSTRUCTION-OUTPUT
+   OPERAND1-multiplicando
+   OPERAND2-n1
+    COMMENT-
+    ADDRESS-1B1
+      LABEL-
+INSTRUCTION-OUTPUT
+   OPERAND1-multiplicador
+   OPERAND2-n2
+    COMMENT-
+    ADDRESS-1B2
+      LABEL-
+INSTRUCTION-OUTPUT
+   OPERAND1-signo
+   OPERAND2-sign
+    COMMENT-
+    ADDRESS-1B3
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Espero el resultado de la multiplicacion
+    ADDRESS-1B3
+      LABEL-mult_ready
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+    ADDRESS-1B3
+      LABEL-
+INSTRUCTION-TEST
+   OPERAND1-semaforo_mult
+   OPERAND2-01
+    COMMENT-; Intento tomar el semaforo
+    ADDRESS-1B4
+      LABEL-
+INSTRUCTION-JUMP
+   OPERAND1-NZ
+   OPERAND2-mult_ready
+    COMMENT-; Si no puedo tomar el semaforo espero
+    ADDRESS-1B5
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-semaforo_mult
+   OPERAND2-00
+    COMMENT-; Tomo el semaforo
+    ADDRESS-1B6
+      LABEL-
+INSTRUCTION-RETURN
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+    ADDRESS-1B7
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-1B7
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Subrutina de verificacion
+    ADDRESS-1B7
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-1B7
+      LABEL-verify
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+    ADDRESS-1B7
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Comparo el byte alto
+    ADDRESS-1B7
+      LABEL-
+INSTRUCTION-INPUT
+   OPERAND1-resultado_alto
+   OPERAND2-rh
+    COMMENT-
+    ADDRESS-1B8
+      LABEL-
+INSTRUCTION-COMPARE
+   OPERAND1-resultado_alto
+   OPERAND2-esperado_alto
+    COMMENT-
+    ADDRESS-1B9
+      LABEL-
+INSTRUCTION-JUMP
+   OPERAND1-NZ
+   OPERAND2-nok
+    COMMENT-
+    ADDRESS-1BA
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Comparo el byte bajo
+    ADDRESS-1BA
+      LABEL-
+INSTRUCTION-INPUT
+   OPERAND1-resultado_bajo
+   OPERAND2-rh
+    COMMENT-
+    ADDRESS-1BB
+      LABEL-
+INSTRUCTION-COMPARE
+   OPERAND1-resultado_bajo
+   OPERAND2-esperado_bajo
+    COMMENT-
+    ADDRESS-1BC
+      LABEL-
+INSTRUCTION-JUMP
+   OPERAND1-NZ
+   OPERAND2-nok
+    COMMENT-
+    ADDRESS-1BD
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Asigno el resultado de la comparacion
+    ADDRESS-1BD
+      LABEL-ok
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+    ADDRESS-1BD
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-esperado_ok
+   OPERAND2-01
+    COMMENT-
+    ADDRESS-1BE
+      LABEL-nok
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+    ADDRESS-1BE
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-esperado_ok
+   OPERAND2-00
+    COMMENT-
+    ADDRESS-1BF
+      LABEL-
+INSTRUCTION-RETURN
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+    ADDRESS-1C0
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-1C0
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Subrutina de interrupcion
+    ADDRESS-1C0
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-2B0
+      LABEL-
+INSTRUCTION-ADDRESS
+   OPERAND1-2B0
+   OPERAND2-
+    COMMENT-
+    ADDRESS-2B0
+      LABEL-int_call
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-
+    ADDRESS-2B0
+      LABEL-
+INSTRUCTION-LOAD
+   OPERAND1-semaforo_mult
+   OPERAND2-01
+    COMMENT-; Doy un semaforo de multiplicacion finalizada
+    ADDRESS-2B1
+      LABEL-
+INSTRUCTION-RETURNI
+   OPERAND1-ENABLE
+   OPERAND2-
+    COMMENT-
+    ADDRESS-2B2
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-2B2
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-; Configurar vector de interrupcion
+    ADDRESS-2B2
+      LABEL-
+INSTRUCTION-
+   OPERAND1-
+   OPERAND2-
+    COMMENT-;************************************
+    ADDRESS-3FF
+      LABEL-
+INSTRUCTION-ADDRESS
+   OPERAND1-3FF
+   OPERAND2-
+    COMMENT-
+    ADDRESS-3FF
+      LABEL-
+INSTRUCTION-JUMP
+   OPERAND1-int_call
+   OPERAND2-
+    COMMENT-
